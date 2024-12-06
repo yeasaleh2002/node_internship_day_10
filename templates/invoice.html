@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .invoice-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+      .invoice-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .invoice-details {
+        margin-bottom: 20px;
+      }
+      .invoice-details th,
+      .invoice-details td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invoice-container">
+      <div class="invoice-header">
+        <h2>Invoice</h2>
+      </div>
+      <div class="invoice-details">
+        <table style="width: 100%;">
+          <tr>
+            <th>Invoice Code</th>
+            <td>{{code}}</td>
+          </tr>
+          <tr>
+            <th>Amount</th>
+            <td>{{amount}}</td>
+          </tr>
+          <tr>
+            <th>Service</th>
+            <td>{{service}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

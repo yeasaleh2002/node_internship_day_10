@@ -13,3 +13,6 @@
 - To generate an invoice, call the endpoint: `/api/v1/code/<code>?amount=<amount>&service=<service>`
 
 - Everything must be done by end of date
+
+- Create an HTML and JS file to display a table of data with a download button for each entry. 
+- When the download button is clicked, it should download an invoice for that data.
