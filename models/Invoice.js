@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 
-// Initialize Sequelize
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USERNAME,
@@ -9,18 +8,16 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOSTNAME,
     port: process.env.DB_PORT,
-    dialect: process.env.DB_ADAPTER || 'mysql', // Use MySQL by default
+    dialect: process.env.DB_ADAPTER || 'mysql', 
   }
 );
 
-// Define the Invoice model
 const Invoice = sequelize.define('Invoice', {
   code: { type: DataTypes.STRING, allowNull: false },
   amount: { type: DataTypes.FLOAT, allowNull: false },
   service: { type: DataTypes.STRING, allowNull: false },
 });
 
-// Sync model with the database
 (async () => {
   try {
     await sequelize.authenticate();

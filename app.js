@@ -1,26 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const invoiceRoutes = require('./routes/invoice'); // Import invoice routes
+const invoiceRoutes = require('./routes/invoice'); 
 
-dotenv.config(); // Load environment variables
+dotenv.config(); 
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// API Routes
-app.use('/api/v1/invoices', invoiceRoutes); // Attach invoice routes to /api/v1/invoices
-app.use('/api/v1/code', invoiceRoutes); // Route for downloading PDF invoices
+app.use('/api/v1/invoices', invoiceRoutes);
+app.use('/api/v1/code', invoiceRoutes);
 
-// Default route for testing
 app.get('/', (req, res) => {
   res.send('API is working!');
 });
 
-// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

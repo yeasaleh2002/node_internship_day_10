@@ -1,4 +1,3 @@
-// Function to fetch invoice data from the backend API
 function fetchInvoices() {
     fetch('http://localhost:3000/api/v1/invoices')
       .then(response => response.json())
@@ -20,12 +19,10 @@ function fetchInvoices() {
       });
   }
   
-  // Function to download invoice by code
   function downloadInvoice(code) {
     const url = `http://localhost:3000/api/v1/code/${code}`;
-    window.location.href = url; // Trigger the download by setting location to the URL
+    window.location.href = url;
   }
   
-  // Fetch invoices when the page loads
   document.addEventListener('DOMContentLoaded', fetchInvoices);
   

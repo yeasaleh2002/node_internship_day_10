@@ -6,17 +6,15 @@ const Invoice = require("../models/Invoice");
 
 const router = express.Router();
 
-// GET all invoices
 router.get("/", async (req, res) => {
   try {
-    const invoices = await Invoice.findAll(); // Fetch invoices from the database
-    res.json(invoices); // Send as JSON response
+    const invoices = await Invoice.findAll(); 
+    res.json(invoices); 
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-// API to download invoice as PDF
 router.get("/:code", async (req, res) => {
   try {
     const { code } = req.params;
@@ -43,7 +41,7 @@ router.get("/:code", async (req, res) => {
         "Content-Disposition",
         `attachment; filename=invoice_${invoice.code}.pdf`
       );
-      res.send(pdfBuffer); // Send PDF to client
+      res.send(pdfBuffer); 
     });
   } catch (error) {
     res.status(500).json({ message: "Error generating invoice" });
